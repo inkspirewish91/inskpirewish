@@ -1,0 +1,311 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background: linear-gradient(to bottom right, #fce4ec, #e3f2fd);
+    color: #333;
+}
+header {
+    text-align: center;
+    padding: 2em;
+    background: rgba(255, 255, 255, 0.8);
+}
+nav a {
+    margin: 0 1em;
+    text-decoration: none;
+    color: #6a1b9a;
+    font-weight: bold;
+}
+section {
+    padding: 2em;
+}
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1em;
+}
+.galeria-grid img {
+    width: 100%;
+    border-radius: 10px;
+}
+footer {
+    text-align: center;
+    padding: 1em;
+    background: #eee;
+    font-size: 0.9em;
+}
+
+
+/* Menú sticky */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Transiciones suaves */
+body, nav a, button, .boton {
+    transition: all 0.3s ease;
+}
+
+nav a:hover, .boton:hover {
+    color: #ab47bc;
+    transform: scale(1.05);
+}
+
+.boton {
+    display: inline-block;
+    background: #ce93d8;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+/* Responsive design para móviles y tablets */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5em;
+    }
+
+    nav a {
+        padding: 0.5em;
+        font-size: 1em;
+        display: inline-block;
+    }
+
+    main {
+        padding: 1em;
+    }
+
+    .galeria-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    form input, form textarea {
+        width: 100%;
+    }
+
+    .boton {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-top: 1em;
+    }
+}
+
+/* Estilo del botón hamburguesa */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+
+/* Responsive: Mostrar hamburguesa y ocultar menú */
+@media (max-width: 768px) {
+    nav {
+        display: none;
+        flex-direction: column;
+        background-color: #ffffffee;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        padding: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    nav.show {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+
+/* Centrado general */
+body, header, section, main, footer {
+    text-align: center;
+}
+
+/* Imagen principal */
+.hero-image {
+    max-width: 80%;
+    height: auto;
+    margin: 20px auto;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Unir secciones de Instagram y WhatsApp */
+#instagram, #formulario-reserva {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+
+/* Animación al pasar el cursor sobre las imágenes */
+.galeria-grid img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.galeria-grid img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+
+/* Hero con imagen y texto encima */
+.hero {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+.hero-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.hero-overlay {
+    position: absolute;
+    color: white;
+    z-index: 2;
+    padding: 2em;
+    background: rgba(0,0,0,0.4);
+    border-radius: 1em;
+}
+
+/* Lightbox simple para ampliar imagen */
+.lightbox-img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: zoom-in;
+}
+.lightbox-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+/* Lightbox visual al hacer clic */
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+.lightbox-full {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px black;
+    cursor: zoom-out;
+}
+
+.lightbox-arrow {
+    position: absolute;
+    top: 50%;
+    font-size: 3em;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    user-select: none;
+    z-index: 10000;
+}
+.lightbox-arrow.left {
+    left: 30px;
+}
+.lightbox-arrow.right {
+    right: 30px;
+}
+
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  #lightbox.active {
+    display: flex;
+  }
+  #lightbox img,
+  #lightbox video {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #fff;
+  }
+  #lightbox-left,
+  #lightbox-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3em;
+    color: white;
+    background: rgba(0,0,0,0.5);
+    padding: 0.2em 0.5em;
+    cursor: pointer;
+    user-select: none;
+    z-index: 1001;
+  }
+  #lightbox-left { left: 20px; }
+  #lightbox-right { right: 20px; }
+  @media (max-width: 768px) {
+    #lightbox-left,
+    #lightbox-right {
+      display: none;
+    }
+  }
+  
+
+/* Ajustar separación entre Instagram y formulario */
+#instagram {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+#formulario-reserva {
+    margin-top: 0.5em;
+    padding-top: 0;
+}
+
+/* Ajustar imagen principal para adaptarse a PC, móvil o tablet */
+.hero-image {
+    max-height: 80vh;
+}
+
+/* Responsive ajuste para imagen principal en móviles */
+@media (max-width: 768px) {
+    .hero-image {
+        max-height: 50vh;
+    }
+}
